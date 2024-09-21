@@ -18,13 +18,14 @@ function Home() {
       setFilteredProducts(products)
     }
   }, [category, products])
-  return products.length === 0 ? <Loading /> : (
+  return (
     <>
       <Nav />
       <div className='w-4/5 h-full bg-green-200 flex flex-wrap gap-10 p-8 overflow-y-auto'>
         {filteredProducts && filteredProducts.map((product) => (
           <Card key={product.id} product={product} />
         ))}
+        {products.length === 0?"No Items to display":""}
       </div>
     </>
   )
